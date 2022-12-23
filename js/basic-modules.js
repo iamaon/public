@@ -11,6 +11,21 @@ export const QSLA = (obj) => {
     return document.querySelectorAll(obj)
 }
 
+export const ce = (e) => {
+    return document.createElement(e)
+}
+
+export const lzEl = (e, t, opt) => {
+    const el = ce(e)
+    if (t && t.length > 0) el.textContent = t
+    if (opt) {
+        for (const [k, v] of Object.entries(opt)) {
+            el.setAttribute(k, v)
+        }
+    }
+    return el
+}
+
 export const bindEvent = (q, e, f, l) => {
     q.addEventListener(e, f, l | false)
 }
