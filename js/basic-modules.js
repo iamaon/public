@@ -15,12 +15,18 @@ export const ce = (e) => {
     return document.createElement(e)
 }
 
-export const lzEl = (e, t, opt) => {
+export const lzEl = (e, t, opt, ds) => {
     const el = ce(e)
     if (t && t.length > 0) el.textContent = t
     if (opt) {
         for (const [k, v] of Object.entries(opt)) {
             el.setAttribute(k, v)
+        }
+    }
+    
+    if (ds && Object.keys(ds)[0] === "dataset") {
+        for (const [k, v] of Object.entries(ds.dataset)) {
+            el.dataset[k] = v
         }
     }
     return el
