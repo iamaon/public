@@ -36,6 +36,8 @@ export const bindEvent = (q, e, f, l) => {
     q.addEventListener(e, f, l | false)
 }
 
+export const setDp = (el, v) => el.style.display = v
+
 export const cloneAttr = (a, b) => {
     [...a.attributes].forEach(attr => {
         //Clone ทุกอย่าง ยกเว้น id
