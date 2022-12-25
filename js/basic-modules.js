@@ -119,6 +119,13 @@ export const range = (size, startAt = 0) => {
     return [...Array(size).keys()].map(i => i + startAt);
 }
 
+export const loadCssFile = async (f) => {
+    const opt = { rel: "stylesheet", type: "text/css", href: f }
+    const link = document.createElement('link')
+    Object.assign(link, opt)
+    document.getElementsByTagName('HEAD')[0].appendChild(link)
+}
+
 export const KEYS = {
     ENTER: "Enter",
     TAB: "Tab",
