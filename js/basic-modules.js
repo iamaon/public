@@ -126,6 +126,11 @@ export const loadCssFile = async (f) => {
     document.getElementsByTagName('HEAD')[0].appendChild(link)
 }
 
+export const buildStyle = (opt) => {
+    const styleSheet = document.styleSheets[0]
+    styleSheet.insertRule(opt, styleSheet.cssRules.length)
+}
+
 export const KEYS = {
     ENTER: "Enter",
     TAB: "Tab",
