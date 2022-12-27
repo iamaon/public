@@ -155,4 +155,4 @@ export const KEYS = {
 
 
 
-window.Object = Object
+export const obj = Object
