@@ -32,6 +32,16 @@ export const lzEl = (e, t, opt, ds) => {
     return el
 }
 
+Object.prototype.kv = function (cb) {
+    const entries = Object.entries(this)
+    if (cb) {
+        for (const [k, v] of entries) {
+            cb(k, v)
+        }
+    }
+    return entries
+}
+
 export const bindEvent = (q, e, f, l) => {
     q.addEventListener(e, f, l | false)
 }
@@ -142,3 +152,7 @@ export const KEYS = {
     ARROW_RIGHT: "ArrowRight",
     ARROW_LEFT: "ArrowLeft"
 }
+
+
+
+window.Object = Object
