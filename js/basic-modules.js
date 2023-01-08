@@ -155,4 +155,4 @@ export const KEYS = {
 
 
 
-export const obj = Object
+export const obj = Object.prototype
