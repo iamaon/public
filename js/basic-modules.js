@@ -2,7 +2,6 @@ export const ID = (obj) => {
     return document.getElementById(obj)
 }
 
-// qsl = queryselector
 export const QSL = (obj) => {
     return document.querySelector(obj)
 }
@@ -40,14 +39,12 @@ export const setDp = (el, v) => el.style.display = v
 
 export const cloneAttr = (a, b) => {
     [...a.attributes].forEach(attr => {
-        //Clone ทุกอย่าง ยกเว้น id
         if (attr.nodeName !== 'id') {
             b.setAttribute(attr.nodeName, attr.nodeValue)
         }
     })
 }
 
-//populate Select เพื่อลด code ฝั่ง html 
 export const populateSelect = (sl, list, useIndex, display) => {
     sl.innerHTML = ""
     list.forEach((t, i) => {
