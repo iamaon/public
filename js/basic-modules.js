@@ -153,3 +153,30 @@ Object.defineProperty(Object.prototype, 'kv', {
         return entries
     }
 })
+
+HTMLElement.prototype.QSL = function (t, cb) {
+    const target = this.querySelector(t)
+    if (cb && typeof (cb) === "function") cb(target)
+    return target
+}
+
+HTMLElement.prototype.QSLA = function (t, cb) {
+    const target = this.querySelectorAll(t)
+    if (cb && typeof (cb) === "function") cb(target)
+    return target
+}
+
+HTMLElement.prototype.isLoaded = async function () {
+    while (this === null) {
+        await new Promise(resolve => requestAnimationFrame(resolve))
+    }
+    return this;
+}
+
+HTMLElement.prototype.getSum = async function (s) {
+    let d = 0
+    const t = this.QSLA(s, (m) => {
+        d = [...m].map(i => +(i.value)).reduce((a, b) => a + b, 0)
+    })
+    return Math.floor(d / t.length)
+}
