@@ -145,6 +145,14 @@ export const rndNP = (v) => {
     return Math.round(Math.random() * v * np)
 }
 
+export const rndRange = (min, max) => {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+export const millisToDays = (millis) => {
+    return millis / (60 * 60 * 24 * 1000)
+}
+
 Object.defineProperty(Object.prototype, 'kv', {
     writable: false,
     configurable: false,
@@ -158,6 +166,12 @@ Object.defineProperty(Object.prototype, 'kv', {
         return entries
     }
 })
+
+Date.prototype.addDays = function (days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
 
 HTMLElement.prototype.QSL = function (t, cb) {
     const target = this.querySelector(t)
