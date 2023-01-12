@@ -140,6 +140,11 @@ export const KEYS = {
     ARROW_LEFT: "ArrowLeft"
 }
 
+export const rndNP = (v) => {
+    const np = Math.ceil((Math.random() - 0.5) * 2) < 1 ? -1 : 1;
+    return Math.round(Math.random() * v * np)
+}
+
 Object.defineProperty(Object.prototype, 'kv', {
     writable: false,
     configurable: false,
