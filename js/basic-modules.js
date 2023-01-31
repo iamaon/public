@@ -153,7 +153,7 @@ export const millisToDays = (millis) => {
     return millis / (60 * 60 * 24 * 1000)
 }
 
-Object.defineProperty(Object.prototype, 'kv', {
+Object.defineProperty(Object.prototype, 'lzKv', {
     writable: false,
     configurable: false,
     value: function (cb) {
