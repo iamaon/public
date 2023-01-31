@@ -167,10 +167,28 @@ Object.defineProperty(Object.prototype, 'kv', {
     }
 })
 
+Array.prototype.newWithKey = function (k) {
+    return this.map(function(i) { return i[k]  })
+}
+
+Array.prototype.clear = function () {
+    while (this.length > 0) {
+        this.pop()
+    }
+}
+
 Date.prototype.addDays = function (days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
+}
+
+Date.prototype.fmtCommon = function (date) {
+    const mediumTime = new Intl.DateTimeFormat("en", {
+        timeStyle: "medium",
+        dateStyle: "short"
+    })
+    return mediumTime.format(this)
 }
 
 HTMLElement.prototype.QSL = function (t, cb) {
